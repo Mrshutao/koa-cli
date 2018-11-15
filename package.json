@@ -1,0 +1,13 @@
+{
+    "scripts": {
+        "start": "node app.js",
+        "tpl": "http-server -p 2000 -c-1"
+    },
+    "dependencies": {
+        "koa": "^2.6.2",
+        "koa-bodyparser": "^4.2.1",
+        "koa-router": "^7.4.0",
+        "koa2-cors": "^2.0.6",
+        "request": "^2.88.0"
+    }
+}

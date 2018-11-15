@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" type="text/css" media="screen" href="/main.af46ece4.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+        <script>var html = document.documentElement,
+    mWidth = html.getBoundingClientRect().width;
+html.style.fontSize = mWidth / 7.5 + 'px';</script>
+        <script>$(function () {
+  var getBtn = $('#get');
+  var loginBtn = $('#login');
+  getBtn.click(function () {
+    $.ajax({
+      url: 'http:192.168.1.129:3000',
+      async: false
+    });
+  });
+  loginBtn.click(function () {
+    var name = $('#name').val();
+    var password = $('#password').val();
+    $.post('http:192.168.1.129:3000/login', {
+      name: name,
+      password: password
+    }, function (result) {
+      result = JSON.parse(result);
+
+      if (result.hasError) {
+        alert('登录失败');
+      } else {
+        if (result.data.login) {
+          alert('登录成功');
+        } else {
+          alert('登录失败，请检查账户或密码');
+        }
+      }
+    });
+  });
+});</script>
+    <script src="/main.af46ece4.js"></script></head>
+    <body>
+        <div class="container">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <button id="get">get请求</button>
+            <div class="form">
+                <div class="form-row">
+                    <label>账号：</label> <input type="text" id="name" placeholder="请输入账号">
+                </div>
+                <div class="form-row">
+                    <label>密码：</label> <input type="password" id="password" placeholder="请输入密码">
+                </div>
+                <div class="form-row"><button id="login">登录</button></div>
+            </div>
+        </div>
+        <script>var mySwiper = new Swiper('.swiper-container', {
+  direction: 'horizontal',
+  // 垂直切换选项
+  loop: false,
+  // 循环模式选项
+  autoplay: 3000,
+  speed: 300,
+  // 如果需要分页器
+  pagination: '.swiper-pagination'
+});</script>
+    </body>
+</html>
