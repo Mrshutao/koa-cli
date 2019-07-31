@@ -1,5 +1,5 @@
 const koa = require("koa");
-const controller = require("./controller");
+const controller = require("./controllers");
 const bodyParser = require("koa-bodyparser");
 const config = require("./config/default");
 const views = require("koa-views");

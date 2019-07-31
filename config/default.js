@@ -1,7 +1,7 @@
 const config = {
 	// 启动端口
 	port: 3000,
-
+	apiServer: "http://adweb.test.ximalaya.com",
 	// 数据库配置
 	database: {
 		DATABASE: "students",
