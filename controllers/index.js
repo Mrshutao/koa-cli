@@ -2,7 +2,7 @@ const router = require("koa-router")();
 const main = require("./main");
 
 const index = async (ctx, next) => {
-	await ctx.render("index");
+	await ctx.render("index.html");
 };
 
 const init = function() {
