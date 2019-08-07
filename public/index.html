@@ -26,8 +26,9 @@
 		</script>
 		<script>
 			$(function() {
-				let getBtn = $("#get");
-				let loginBtn = $("#login");
+				const getBtn = $("#get");
+				const loginBtn = $("#login");
+				const uploadBtn = $("#upload");
 				getBtn.click(() => {
 					$.ajax({
 						url: "http://127.0.0.1:3000",
@@ -50,6 +51,7 @@
 						}
 					});
 				});
+				uploadBtn.change(() => {});
 			});
 		</script>
 	</head>
@@ -70,6 +72,10 @@
 				<div class="form-row"><label>账号：</label> <input type="text" id="name" placeholder="请输入账号" /></div>
 				<div class="form-row"><label>密码：</label> <input type="password" id="password" placeholder="请输入密码" /></div>
 				<div class="form-row"><button id="login">登录</button></div>
+				<form action="http://127.0.0.1:3000/upload" method="post" name="f_upload" enctype="multipart/form-data">
+					<input type="file" name="filename" /><br />
+					<input type="submit" value="上传" />
+				</form>
 			</div>
 		</div>
 		<script>

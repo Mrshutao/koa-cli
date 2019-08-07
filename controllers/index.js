@@ -1,5 +1,5 @@
 const index = async (ctx, next) => {
-	await ctx.render("index");
+	ctx.body = "hello!";
 };
 
 module.exports = {

@@ -4,7 +4,7 @@ const login = async (ctx, next) => {
 		password = ctx.request.body.password || "";
 
 	await mysql.query("select * from student where(name=? and password=?)", [name, password]).then(res => {
-		if (res) {
+		if (res && res.length > 0) {
 			ctx.body = JSON.stringify({ hasError: false, data: { login: true } });
 		} else {
 			ctx.body = JSON.stringify({ hasError: false, data: { login: false } });
